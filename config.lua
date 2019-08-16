@@ -119,3 +119,5 @@ config = {
 
 	
 }
+
+Config.GiveBlack = true
