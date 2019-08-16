@@ -1,4 +1,23 @@
 -------------------------
+------ ESX SUPPORT ------
+-------------------------
+
+ESX = nil
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
+RegisterNetEvent('BadgerBankRobbery:Payout')
+AddEventHandler('BadgerBankRobbery:Payout', function()
+        local _source = source
+        local xPlayer = ESX.GetPlayerFromId(_source)
+
+        if Config.GiveBlack then
+            xPlayer.addAccountMoney('black_money', price)
+        else
+            xPlayer.addMoney(price)
+        end
+end)
+
+-------------------------
 --- BadgerBankRobbery ---
 -------------------------
 --- Server ---
